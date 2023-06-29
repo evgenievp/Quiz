@@ -1,0 +1,56 @@
+.welcome-container {
+    background-color: black;
+    width: 60%;
+
+}
+
+.register-page {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    vertical-align: center;
+
+}
+.register-page form label {
+    display: none;
+}
+
+.register-page form {
+    box-sizing: border-box;
+    display: flex;
+    font-family: Arial sans-serif;
+    background-image: url("../images/form-background-image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: normal;
+    flex-direction: column;
+    width: 40vw;
+    height: 60vh;
+    border: 2px solid yellowgreen;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 5%;
+
+
+}
+
+
+.register-page form input, button {
+    width: 50%;
+    display: block;
+    align-self: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+
+.register-page form button {
+    border-radius: 5px;
+    background-color: darkorange;
+    font-size: 18px;
+    width: 54%;
+}
+
+.checkbox {
+    font-size: 16px;
+}

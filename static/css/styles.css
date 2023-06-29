@@ -1,0 +1,15 @@
+@import "navbar.css";
+@import "main.css";
+@import "login-form.css";
+@import "quiz-main.css";
+@import "categories.css";
+
+
+
+body {
+    overflow-x: hidden;
+    background-image: url("../images/welcome_page_pic.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}

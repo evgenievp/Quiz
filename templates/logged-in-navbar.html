@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+    <nav class="logged-in-nav-bar">
+        <a href="{% url 'profile page' %}"><h1>Profile</h1></a>
+        <a href="{% url 'random quiz' %}"><h1>Random quiz</h1></a>
+        <a href="{% url 'categories page' %}"><h1>Categories</h1></a>
+        <a href="{% url 'welcome page' %}"><h1>Logout</h1></a>
+    </nav>
+
+{% endblock %}

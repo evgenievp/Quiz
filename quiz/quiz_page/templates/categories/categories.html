@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    {% include 'logged-in-navbar.html' %}
+    <div class="categories">
+        {% for category in categories %}
+            <a href="categories/{{ category }}"><h1>{{ category }}</h1></a>
+        {% endfor %}
+    </div>
+{% endblock %}

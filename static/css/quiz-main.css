@@ -1,0 +1,88 @@
+#random-quiz-container {
+    box-sizing: border-box;
+    display: flex;
+    font-family: Arial sans-serif;
+    background-image: url("../images/clock.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: normal;
+    flex-direction: column;
+    width: 50vw;
+    height: 70vh;
+    border: 2px solid yellowgreen;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 5%;
+    margin: auto;
+    color: blue;
+    overflow-y: scroll;
+
+}
+
+#random-quiz-container h1 {
+    display: flex;
+    margin: auto;
+}
+
+
+#question-answers {
+    display: flex;
+    color: blue;
+    margin: auto;
+}
+
+#question-answers #options {
+    height: 100px;
+    width: 150px;
+    box-sizing: border-box;
+
+}
+
+.categories {
+    box-sizing: border-box;
+    display: flex;
+    font-family: Arial sans-serif;
+    background-image: url("../images/clock.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: normal;
+    flex-direction: column;
+    width: 50vw;
+    height: 70vh;
+    border: 2px solid yellowgreen;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 5%;
+    margin: auto;
+    color: blue;
+    overflow-y: scroll;
+}
+
+.new-question {
+    box-sizing: border-box;
+    display: flex;
+    font-family: Arial sans-serif;
+    background-image: url("../images/clock.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: normal;
+    flex-direction: column;
+    width: 50vw;
+    height: 70vh;
+    border: 2px solid yellowgreen;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 5%;
+    margin: auto;
+    color: blue;
+    overflow-y: scroll;
+}
+
+.new-question input, textarea, select{
+    display: block;
+    margin: auto;
+    border-radius: 5px;
+}
+.timer {
+    margin: auto;
+}

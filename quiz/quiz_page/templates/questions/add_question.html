@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'logged-in-navbar.html' %}
+    <div class="new-question">
+        <form method="post" action="{% url 'create question' %}">
+            {{ form }}
+            {% csrf_token %}
+            <button>Add Question</button>
+        </form>
+    </div>
+{% endblock %}
