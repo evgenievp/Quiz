@@ -1,57 +1,29 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-    <script>
-        function timer() {
-            let h1 = document.getElementById('timer');
-
-            // timer
-            function sleep(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-            }
-
-            async function countdown() {
-                let time = 10;
-                while (time >= 0) {
-                    h1.textContent = time;
-                    time -= 1;
-                    await sleep(1000);
-                }
-            }
-
-            countdown();
-
-        }
-
-        function buttons() {
-            let container = document.getElementById("all-about-questions");
-            for (let current of container.children) {
-                console.log("current", current);
-            }
-
-        }
-
-
-    </script>
+    <script src="{% static 'js/quiz_js.js' %}"></script>
     {% include 'logged-in-navbar.html' %}
-
     <div id="random-quiz-container">
         <h1>Topic: {{ topic }}</h1>
+        <h1 id="timer"></h1>
         <div id="js_container">
             {% for question in random_five %}
-                <div id="all-about-questions">
-                    <h1 style="display: none" class="valid-option">{{ question.correct_option }}</h1>
+                <div id="question-number{{ forloop.counter }}">
+                    <h1 style="display: none" id="valid-option">{{ question.correct_option }}</h1>
                     <h1 id="current_question">{{ question.question }}</h1>
                     <section id="question-answers">
-                        <button id="options" class="A" onclick="buttons()">{{ question.option_1 }}</button>
-                        <button id="options" class="B" onclick="buttons()">{{ question.option_2 }}</button>
-                        <button id="options" class="C" onclick="buttons()">{{ question.option_3 }}</button>
-                        <button id="options" class="D" onclick="buttons()">{{ question.option_4 }}</button>
+                        <button id="options" class="A"
+                                onclick="buttons();">{{ question.option_1 }}</button>
+                        <button id="options" class="B"
+                                onclick="buttons();">{{ question.option_2 }}</button>
+                        <button id="options" class="C"
+                                onclick="buttons();">{{ question.option_3 }}</button>
+                        <button id="options" class="D"
+                                onclick="buttons();">{{ question.option_4 }}</button>
                     </section>
-                    <h1 id="timer"></h1>
                 </div>
             {% endfor %}
-            <script>start();</script>
+            <script>timer();</script>
         </div>
     </div>
 
