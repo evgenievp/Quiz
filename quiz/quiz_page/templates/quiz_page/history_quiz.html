@@ -38,7 +38,7 @@
     <div id="random-quiz-container">
         <h1>Topic: {{ topic }}</h1>
         <div id="js_container">
-            {% for question in first_five %}
+            {% for question in random_five %}
                 <div id="all-about-questions">
                     <h1 style="display: none" class="valid-option">{{ question.correct_option }}</h1>
                     <h1 id="current_question">{{ question.question }}</h1>

@@ -28,13 +28,25 @@ def random_quiz(request):
 
 class HistoryView(views.CreateView):
     model = Category
-    template_name = 'quiz_page/quiz.html'
+    template_name = 'quiz_page/history_quiz.html'
     fields = '__all__'
     success_url = reverse_lazy('categories page')
-    first_five = Question.objects.filter(topic__name='History')[:5]
+    random_five = Question.objects.filter(topic__name='History')[:5]
     extra_context = {
         'topic': "History",
-        'first_five': first_five,
+        'random_five': random_five,
+    }
+
+
+class PhilosophyView(views.CreateView):
+    model = Category
+    template_name = 'quiz_page/philosophy_quiz.html'
+    fields = '__all__'
+    success_url = reverse_lazy('categories page')
+    random_five = Question.objects.filter(topic__name='Philosophy').order_by("?")[:5]
+    extra_context = {
+        'topic': "Philosophy",
+        'random_five': random_five,
     }
 
 

@@ -15,7 +15,6 @@
                 let jsContainer = document.getElementById('js_container');
                 let displayTimer = document.createElement("h1");
                 jsContainer.appendChild(displayTimer);
-
                 // main for loop. //
                 for (let i = 1; i < 6; i++) {
                     let el = elStorage.shift();
@@ -44,8 +43,8 @@
                     if (i === 5) {
                         break;
                     }
-
                 }
+
 
             }
 
@@ -73,10 +72,14 @@
                     <h1 style="display: none" id="valid-option">{{ question.correct_option }}</h1>
                     <h1 id="current_question">{{ question.question }}</h1>
                     <section id="question-answers">
-                        <button id="options" class="A" onclick="buttons()">{{ question.option_1 }}</button>
-                        <button id="options" class="B" onclick="buttons()">{{ question.option_2 }}</button>
-                        <button id="options" class="C" onclick="buttons()">{{ question.option_3 }}</button>
-                        <button id="options" class="D" onclick="buttons()">{{ question.option_4 }}</button>
+                        <button id="options" class="A"
+                                onclick="buttons();">{{ question.option_1 }}</button>
+                        <button id="options" class="B"
+                                onclick="buttons();">{{ question.option_2 }}</button>
+                        <button id="options" class="C"
+                                onclick="buttons();">{{ question.option_3 }}</button>
+                        <button id="options" class="D"
+                                onclick="buttons();">{{ question.option_4 }}</button>
                     </section>
                 </div>
             {% endfor %}
