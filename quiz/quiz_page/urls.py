@@ -8,6 +8,7 @@ urlpatterns = (
         path('random/', views.random_quiz, name='random quiz'),
         path('History/', views.HistoryView.as_view(), name='History'),
         path('Philosophy/', views.PhilosophyView.as_view(), name="Philosophy"),
+        path('Literature/', views.LiteratureView.as_view(), name='Literature'),
     ])),
     path('create-question/', views.CreateQuestionView.as_view(), name='create question'),
 

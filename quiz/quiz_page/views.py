@@ -50,6 +50,19 @@ class PhilosophyView(views.CreateView):
     }
 
 
+class LiteratureView(views.CreateView):
+    model = Category
+    template_name = 'quiz_page/literature_quiz.html'
+    fields = '__all__'
+    success_url = reverse_lazy('categories page')
+    random_five = Question.objects.filter(topic__name='Literature').order_by("?")[:5]
+    extra_context = {
+        'topic': "Literature",
+        'random_five': random_five,
+    }
+
+
+
 class CreateQuestionView(views.CreateView):
     model = Question
     template_name = 'questions/add_question.html'

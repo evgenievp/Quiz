@@ -15,10 +15,11 @@ function timer() {
         for (let i = 1; i < 6; i++) {
             let el = elStorage.shift();
             jsContainer.appendChild(el);
-            let time = 5;
+            let time = 30;
             while (time > 0) {
                 time -= 1;
                 displayTimer.textContent = time;
+
                 await delay(1000);
             }
 
