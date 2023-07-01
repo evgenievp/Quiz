@@ -28,10 +28,3 @@ class User(models.Model):
 
     )
 
-#
-# class Quiz(models.Model):
-#     questions = models.PositiveIntegerField(
-#         default=10,
-#         blank=True,
-#         null=True,
-#     )

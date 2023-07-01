@@ -1,0 +1,34 @@
+#history-quiz-container {
+    box-sizing: border-box;
+    display: flex;
+    font-family: Arial sans-serif;
+    background-image: url("../images/ancient-history.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: normal;
+    flex-direction: column;
+    width: 50vw;
+    height: 70vh;
+    border: 2px solid yellowgreen;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 5%;
+    margin: auto;
+    color: blue;
+    overflow-y: scroll;
+
+}
+
+#history-quiz-container h1 {
+    color: whitesmoke;
+    font-style: italic;
+}
+
+#options {
+    font-weight: bold;
+    box-sizing: border-box;
+    border: 4px solid gold;
+    color: brown;
+    background-color: gold;
+    border-radius: 10px;
+}

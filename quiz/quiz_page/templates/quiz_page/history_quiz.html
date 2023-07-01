@@ -3,8 +3,8 @@
 {% block content %}
     <script src="{% static 'js/quiz_js.js' %}"></script>
     {% include 'logged-in-navbar.html' %}
-    <div id="random-quiz-container">
-        <h1>Topic: {{ topic }}</h1>
+    <div id="philosophy-quiz-container">
+{#        <h1>Topic: {{ topic }}</h1>#}
         <h1 id="timer"></h1>
         <div id="js_container">
             {% for question in random_five %}

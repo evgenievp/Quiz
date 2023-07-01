@@ -3,7 +3,8 @@
 @import "login-form.css";
 @import "quiz-main.css";
 @import "categories.css";
-
+@import "history-quiz.css";
+@import "philosophy-quiz.css";
 
 
 body {
