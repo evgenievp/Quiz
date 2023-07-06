@@ -4,10 +4,11 @@ from quiz.main_page import views
 
 urlpatterns = (
     path('', views.home_page, name='welcome page'),
-    path('login/', views.logging_page, name='login page'),
-    path('register/', views.register_page, name='register page'),
-    path('profile/', views.profile_page, name='profile page'),
+    path('login/', views.UserLoginView.as_view(), name='login page'),
+    path('logout/', views.UserLogoutForm.as_view(), name='logout page'),
+    path('register/', views.RegisterUserView.as_view(), name='register page'),
+    path('profile/', include([
+         path('details/<int:pk>/', views.UserProfileDetailsView.as_view(), name='profile details'),
 
-    # extends for another app
-
+        ])),
 )

@@ -1,10 +1,12 @@
+from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinLengthValidator
 from django.db import models
 
 from quiz.main_page.validators import validate_file_size
 
 
-class User(models.Model):
+class QuizUser(AbstractUser):
+
     username = models.CharField(
         max_length=30,
         unique=True,
@@ -12,7 +14,7 @@ class User(models.Model):
         null=False,
     )
     password = models.CharField(
-        max_length=30,
+        max_length=200,
         null=False,
         blank=False,
         default='somepass'
@@ -27,4 +29,13 @@ class User(models.Model):
         validators=(validate_file_size,)
 
     )
-
+    first_name = models.CharField(
+        max_length=30,
+        blank=True,
+        null=True,
+    )
+    last_name = models.CharField(
+        max_length=30,
+        blank=True,
+        null=True,
+    )

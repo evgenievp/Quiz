@@ -1,5 +1,11 @@
 from django.shortcuts import render, redirect
-from quiz.main_page.forms import RegisterForm
+from django.urls import reverse_lazy
+
+from quiz.main_page.forms import RegisterForm, LoginForm
+from django.views import generic as views
+from django.contrib.auth import views as auth_views, login
+
+from quiz.main_page.models import QuizUser
 
 
 def home_page(request):
@@ -17,27 +23,32 @@ def home_page(request):
     return render(request, 'home_page/welcome_page.html', context=context)
 
 
-def logging_page(request):
-    return render(request, 'logging-page.html')
+class UserLoginView(auth_views.LoginView):
+    form_class = LoginForm
+    template_name = 'logging-page.html'
+    next_page = reverse_lazy('profile details')
 
 
-def register_page(request):
-    if request.method == "GET":
-        form = RegisterForm()
-    else:
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('profile page')
-    context = {
-        'form': form,
-    }
-    return render(request, 'register-page.html', context)
+class UserLogoutForm(auth_views.LogoutView):
+    next_page = reverse_lazy('welcome page')
 
 
-def profile_page(request):
-    context = {
+class RegisterUserView(views.CreateView):
+    template_name = 'register-page.html'
+    model = QuizUser
+    form_class = RegisterForm
+    success_url = 'profile details'
 
-    }
-    return render(request, 'profile-page.html', context)
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        profile_details_url = reverse_lazy('profile details', kwargs={'pk': self.object.pk})
+        return redirect(profile_details_url)
+
+class UserProfileDetailsView(views.DetailView):
+    model = QuizUser
+    template_name = 'profile-page.html'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(pk=self.kwargs['pk'])
 
