@@ -67,3 +67,12 @@ class Question(models.Model):
         blank=True,
     )
 
+class Quiz(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField(max_length=500)
+    duration = models.DurationField()
+    difficulty = models.CharField(max_length=20)
+    questions = models.ManyToManyField(Question)
+
+    class Meta:
+        verbose_name_plural = "Quizes"

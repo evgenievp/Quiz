@@ -39,3 +39,9 @@ class QuizUser(AbstractUser):
         blank=True,
         null=True,
     )
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(QuizUser, on_delete=models.CASCADE)
+    bio = models.TextField(max_length=500, blank=True)
+    date_of_birth = models.DateField(blank=True, null=True)
+    location = models.CharField(max_length=100, blank=True)

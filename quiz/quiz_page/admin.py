@@ -1,5 +1,7 @@
 from django.contrib import admin
-from quiz.quiz_page.models import Question, Category
+
+from quiz.main_page.models import UserProfile, QuizUser
+from quiz.quiz_page.models import Question, Category, Quiz
 
 
 @admin.register(Question)
@@ -9,4 +11,19 @@ class QuestionsAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoriesAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Quiz)
+class QuizAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(UserProfile)
+class UserProfile(admin.ModelAdmin):
+    pass
+
+
+@admin.register(QuizUser)
+class UserAdminPanel(admin.ModelAdmin):
     pass

@@ -3,14 +3,11 @@
     {% include 'welcome_navbar.html' %}
     <div id="login-page">
         <form action="{% url 'login page' %}" method="post" id="login-page-form">
-            <input placeholder="Username">
-            <input placeholder="Password">
+            {{ form }}
             {% csrf_token %}
             <button>Login</button>
             <button class="forgot-password">Forgot Password?</button>
         </form>
     </div>
-
-
 
 {% endblock %}

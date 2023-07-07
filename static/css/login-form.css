@@ -8,9 +8,9 @@
     border: 2px solid yellowgreen;
     border-radius: 10px;
     overflow: hidden;
-    padding: 5%;
+    padding: 4px;
     font-family: Arial sans-serif;
-    background-image: url("../images/form-background-image.jpg");
+    /*background-image: url("../images/form-background-image.jpg");*/
     background-size: cover;
     background-repeat: no-repeat;
     margin-top: 100px;
@@ -23,7 +23,7 @@
     justify-content: center;
     justify-items: center;
     flex-direction: column;
-    margin: 30%;
+    margin: auto;
 }
 
 #login-page-form button {
@@ -36,4 +36,11 @@
     background-color: orangered;
     border-radius: 5px;
     width: 102%;
+}
+
+label {
+    display: none;
+}
+ul {
+    display: none;
 }
