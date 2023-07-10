@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from quiz.main_page.models import UserProfile, QuizUser
+from quiz.main_page.models import QuizUser
 from quiz.quiz_page.models import Question, Category, Quiz
 
 
@@ -16,11 +16,6 @@ class CategoriesAdmin(admin.ModelAdmin):
 
 @admin.register(Quiz)
 class QuizAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(UserProfile)
-class UserProfile(admin.ModelAdmin):
     pass
 
 

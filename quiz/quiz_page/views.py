@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from quiz.quiz_page.forms import QuizForm, CreateQuestionForm
@@ -5,14 +7,14 @@ from quiz.quiz_page.models import Question, Category
 from django.views import generic as views
 
 
-def categories_page(request):
-    categories = Category.objects.all()
-    context = {
-        'categories': categories,
-    }
-    return render(request, 'categories/categories.html', context)
+class CategoriesPage(LoginRequiredMixin, views.ListView):
+    template_name = 'categories/categories.html'
+    model = Category
+    queryset = Category.objects.all()
+    context_object_name = 'categories'
 
 
+@login_required
 def random_quiz(request):
     five_questions = Question.objects.all()[:5]
     form = QuizForm()
@@ -21,12 +23,12 @@ def random_quiz(request):
         'questions': five_questions,
         'questions_count': five_questions.count(),
         'topic': 'Random',
-
     }
     return render(request, 'quiz_page/random_quiz.html', context)
 
 
-class HistoryView(views.CreateView):
+
+class HistoryView(LoginRequiredMixin, views.View):
     model = Category
     template_name = 'quiz_page/history_quiz.html'
     fields = '__all__'
@@ -38,7 +40,7 @@ class HistoryView(views.CreateView):
     }
 
 
-class PhilosophyView(views.CreateView):
+class PhilosophyView(LoginRequiredMixin, views.View):
     model = Category
     template_name = 'quiz_page/philosophy_quiz.html'
     fields = '__all__'
@@ -50,7 +52,7 @@ class PhilosophyView(views.CreateView):
     }
 
 
-class LiteratureView(views.CreateView):
+class LiteratureView(LoginRequiredMixin, views.CreateView):
     model = Category
     template_name = 'quiz_page/literature_quiz.html'
     fields = '__all__'
@@ -63,7 +65,19 @@ class LiteratureView(views.CreateView):
 
 
 
-class CreateQuestionView(views.CreateView):
+class ProgrammingView(LoginRequiredMixin, views.View):
+    model = Category
+    template_name = 'quiz_page/programming.html'
+    fields = '__all__'
+    succcess_url = reverse_lazy('categories page')
+    random_five = Question.objects.filter(topic__name='Programming').order_by("?")[:5]
+    extra_content = {
+        'topic': 'Programming',
+        'random_five': random_five,
+    }
+
+
+class CreateQuestionView(LoginRequiredMixin, views.View):
     model = Question
     template_name = 'questions/add_question.html'
     success_url = reverse_lazy('categories page')

@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
+from django.templatetags.static import static
 from django.urls import reverse_lazy
 
 from quiz.main_page.forms import RegisterForm, LoginForm, UserProfileEditForm
 from django.views import generic as views
-from django.contrib.auth import views as auth_views, login
+from django.contrib.auth import views as auth_views
 
 from quiz.main_page.models import QuizUser
 
@@ -46,11 +47,29 @@ class RegisterUserView(views.CreateView):
 
 
 class UserProfileEditView(views.UpdateView):
-    model = QuizUser
+    model = UserProfileEditForm
     form_class = UserProfileEditForm
     template_name = 'profile-page.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['QuizUser'] = QuizUser.objects.all()
+        return context
 
     def get_success_url(self):
         return reverse_lazy('profile details', kwargs={'pk', self.object.pk})
 
 
+class UserProfileDetailsView(views.DetailView):
+    template_name = 'profile-page.html'
+    model = QuizUser
+
+    def get_context_data(self, **kwargs):
+        profile_image = static('../../static/images/profile-pic.jpg')
+
+        if self.object.profile_image is not None:
+            profile_image = self.object.profile_image
+
+        context = super().get_context_data(**kwargs)
+        context['profile_image'] = profile_image
+        return context

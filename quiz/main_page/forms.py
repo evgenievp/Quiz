@@ -57,9 +57,4 @@ class RegisterForm(auth_forms.UserCreationForm):
 class UserProfileEditForm(forms.ModelForm):
     class Meta:
         model = QuizUser
-        fields = [
-            'password',
-            'profile_image',
-
-        ]
-
+        fields = '__all__'

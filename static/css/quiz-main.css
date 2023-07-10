@@ -38,26 +38,6 @@
 
 }
 
-.categories {
-    box-sizing: border-box;
-    display: flex;
-    font-family: Arial sans-serif;
-    background-image: url("../images/clock.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    align-items: normal;
-    flex-direction: column;
-    width: 50vw;
-    height: 70vh;
-    border: 2px solid yellowgreen;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 5%;
-    margin: auto;
-    color: blue;
-    overflow-y: scroll;
-}
-
 .new-question {
     box-sizing: border-box;
     display: flex;

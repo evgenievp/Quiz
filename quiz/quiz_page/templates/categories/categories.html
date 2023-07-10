@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-{% load static %}
+    {% load static %}
     {% include 'logged-in-navbar.html' %}
     <div class="categories">
         {% for category in categories %}
-            <a href="categories/{{ category }}"><h1>{{ category }}</h1></a>
+            <div class="category">
+                <article id="image">
+                    <a href="categories/{{ category }}"><img src="{{ category.picture }}" alt="{{ category }}"></a>
+                </article>
+                <article class="text">
+                    <a href="categories/{{ category }}"><h1>{{ category }}</h1></a>
+                </article>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

@@ -10,6 +10,12 @@ class Category(models.Model):
         null=False,
     )
 
+    picture = models.URLField(
+        max_length=250,
+        blank=True,
+        null=True,
+    )
+
     class Meta:
         verbose_name_plural = "Categories"
 
