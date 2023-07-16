@@ -1,8 +1,9 @@
-{% extends 'base.html' %}
+={% extends 'base.html' %}
 {% load static %}
 {% block content %}
     <script src="{% static 'js/quiz_js.js' %}"></script>
     {% include 'logged-in-navbar.html' %}
+
     <div id="programming-container">
         <h1>Topic: {{ topic }}</h1>
         <h1 id="timer"></h1>
@@ -12,14 +13,14 @@
                     <h1 style="display: none" id="valid-option">{{ question.correct_option }}</h1>
                     <h1 id="current_question">{{ question.question }}</h1>
                     <section id="question-answers">
-                        <button class="options{{ forloop.counter }}" id="A">{{ question.option_1 }}</button>
-                        <button class="options{{ forloop.counter }}" id="B">{{ question.option_2 }}</button>
-                        <button class="options{{ forloop.counter }}" id="C">{{ question.option_3 }}</button>
-                        <button class="options{{ forloop.counter }}" id="D">{{ question.option_4 }}</button>
+                        <button class="options" class="A">{{ question.option_1 }}</button>
+                        <button class="options" class="B">{{ question.option_2 }}</button>
+                        <button class="options" class="C">{{ question.option_3 }}</button>
+                        <button class="options" class="D">{{ question.option_4 }}</button>
                     </section>
                 </div>
             {% endfor %}
-            <script>mainLoop();</script>
+            <script>timer();</script>
         </div>
     </div>
 

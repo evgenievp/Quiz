@@ -138,3 +138,4 @@ AUTH_USER_MODEL = 'main_page.QuizUser'
 
 LOGIN_URL = reverse_lazy('login page')
 LOGOUT_REDIRECT_URL = reverse_lazy('login page')
+

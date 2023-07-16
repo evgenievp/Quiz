@@ -10,5 +10,5 @@ urlpatterns = (
     path('profile/', include([
          path('details/<int:pk>/', views.UserProfileEditView.as_view(), name='profile details'),
 
-        ])),
+    ])),
 )

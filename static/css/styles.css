@@ -5,7 +5,7 @@
 @import "categories.css";
 @import "history-quiz.css";
 @import "philosophy-quiz.css";
-
+@import "programming.css";
 
 body {
     overflow-x: hidden;

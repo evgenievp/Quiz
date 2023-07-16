@@ -1,12 +1,12 @@
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinLengthValidator
 from django.db import models
+from django.contrib.auth.models import Group
 
 from quiz.main_page.validators import validate_file_size
 
 
 class QuizUser(AbstractUser):
-
     username = models.CharField(
         max_length=30,
         unique=True,
@@ -39,4 +39,5 @@ class QuizUser(AbstractUser):
         blank=True,
         null=True,
     )
+
 
