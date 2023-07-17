@@ -28,7 +28,7 @@ def random_quiz(request):
     return render(request, 'quiz_page/random_quiz.html', context)
 
 
-class HistoryView(LoginRequiredMixin, views.View):
+class HistoryView(LoginRequiredMixin, auth_views.TemplateView):
     model = Category
     template_name = 'quiz_page/history_quiz.html'
     fields = '__all__'

@@ -44,18 +44,22 @@ function manageButtons(num) {
             return resetTimer;
         }
     }
+
+
     return resetTimer;
 }
 
+
+
 async function mainLoop() {
     let elStorage = [];
+    let counterAnsweredCorrect = 0;
     elStorage = hideAllQuestions(elStorage);
-
+    let h1 = document.getElementById("timer");
     for (let i = 1; i <= 5; i++) {
         elStorage = takeQuestion(elStorage)
         let time = 15;
         resetTimer = manageButtons(i);
-        let h1 = document.getElementById("timer");
         while (time > 0) {
             await sleep(1000);
             h1.textContent = time;
@@ -73,6 +77,7 @@ async function mainLoop() {
             resetTimer = false;
         }
     }
+    h1.remove();
 
 }
 
