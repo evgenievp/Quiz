@@ -8,6 +8,7 @@ function hideAllQuestions(elStorage) {
     }
     return elStorage;
 }
+
 function takeQuestion(elStorage) {
     let question = elStorage.shift();
     let jsContainer = document.getElementById('js_container');
@@ -15,6 +16,11 @@ function takeQuestion(elStorage) {
 
     return elStorage;
 }
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function makeGreen() {
     let correctAnswer = document.getElementById("valid-option");
     let text = correctAnswer.textContent;
@@ -22,10 +28,6 @@ function makeGreen() {
     button.style.backgroundColor = "lightgreen";
 
 }
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 
 function manageButtons(num) {
     let buttons = document.getElementsByClassName(`options${num}`);
@@ -62,12 +64,16 @@ async function mainLoop() {
                 break;
             }
             time -= 1;
-
+            if (time === 0) {
+                let question = document.getElementById(`question-number${i}`);
+                question.remove();
+            }
         }
         if (resetTimer) {
             resetTimer = false;
         }
     }
+
 }
 
 
