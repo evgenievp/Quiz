@@ -2,11 +2,7 @@
 {% block content %}
     <div class="profile-page">
         {% csrf_token %}
-        {{ form.password }}
-        {{ form.profile_image }}
-        {{ form.date_of_birth }}
-        {{ form.location }}
-        {{ form.bio }}
+        {{ form }}
         <button>Edit</button>
     </div>
 {% endblock %}

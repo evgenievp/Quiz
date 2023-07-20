@@ -47,7 +47,7 @@ class RegisterUserView(views.CreateView):
 
 
 class UserProfileEditView(views.UpdateView):
-    model = UserProfileEditForm
+    model = QuizUser
     form_class = UserProfileEditForm
     template_name = 'profile-page.html'
 

@@ -6,6 +6,7 @@
 @import "history-quiz.css";
 @import "philosophy-quiz.css";
 @import "programming.css";
+@import "profile_page.css";
 
 body {
     overflow-x: hidden;
